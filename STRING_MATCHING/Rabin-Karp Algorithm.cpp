@@ -47,7 +47,8 @@ int main()
 {
     string txt("People for People");
     string pat("People");
-    int q = 101; // A prime number
+    int q = 101; // A prime number such that d*q fits within a computer word
+                 // This is done so that all the multiplications with d above doesn't overflow.
     rabinKarp(txt, pat, q);
     return 0;
 }
