@@ -10,10 +10,12 @@ void rabinKarp(string &txt, string &pat, int q)
 {
     int m = pat.size(), n = txt.size();
 
-    int h = 1;
+    int h = 1; 
+    // Make h = (d^(m-1))%q. It will be used to remove the first character from hash value when window is shifted.
     for (int i = 0; i < m-1; i++)
         h = (h*d)%q;
-
+    
+ 
     int p = 0, t = 0; // hash value for pattern and text
 
     for (int i = 0; i < m; i++)
