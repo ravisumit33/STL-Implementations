@@ -1,12 +1,9 @@
 #include <iostream>
 #include <string>
- 
-// d is the number of characters in input alphabet
-#define d 256
-
 using namespace std;
 
-void rabinKarp(string &txt, string &pat, int q)
+
+void rabinKarp(const string &txt, const string &pat, const int d, const int q)
 {
     int m = pat.size(), n = txt.size();
 
@@ -45,12 +42,17 @@ void rabinKarp(string &txt, string &pat, int q)
     }
 }
  
+
 int main()
 {
     string txt("People for People");
     string pat("People");
-    int q = 101; // A prime number such that d*q fits within a computer word
+ 
+    const int d = 256; // d is the number of characters in input alphabet
+ 
+    const int q = 101; // A prime number such that d*q fits within a computer word
                  // This is done so that all the multiplications with d above doesn't overflow.
-    rabinKarp(txt, pat, q);
+    
+    rabinKarp(txt, pat, d, q);
     return 0;
 }
